@@ -10,9 +10,9 @@ export function getVideoIdFromUrl(): string | null {
   return urlParams.get("v"); // query parameter for video ID in YouTube URLs
 }
 
+// searches specifically for element 'related' on the DOM to inject content script
 async function waitForElement(elementId: string, timeoutMS = 5000): Promise<HTMLElement | null> {
 
-  // check if element is already present in the DOM
   const immediateCheck = document.getElementById(elementId);
   if (immediateCheck) return immediateCheck;
 
@@ -55,6 +55,8 @@ async function handleVideoChange() {
       return;
     }
 
+    // Ensure user is playing a new video
+    // Due to Youtube's SPA structure, no page re-loads, but videoID in URL changes for each new video
     const videoId = getVideoIdFromUrl();
     if (!videoId || videoId === previousVideoId) return;
     previousVideoId = videoId;
@@ -77,6 +79,7 @@ async function handleVideoChange() {
   }
 }
 
+// continuously monitors DOM for any changes to detect navigation events
 function observeForVideoChanges() {
   const targetNode = document.body;
   const config = { childList: true, subtree: true };
