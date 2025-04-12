@@ -1,5 +1,6 @@
 // api/summarize.ts
 import type { VercelRequest, VercelResponse } from '@vercel/node';
+import fetch from 'node-fetch';
 
 const PROMPT_TEMPLATE = `Please summarize the following YouTube video titled: "{{title}}" transcript into 6 bullet points...`;
 
