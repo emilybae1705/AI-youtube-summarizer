@@ -9,7 +9,6 @@ export async function injectSidebar(title: string, transcript: string, videoId: 
   let summarizer = document.getElementById('yt-summarizer-sidebar-container');
 
   if (!summarizer) {
-
     // Create a new div element to serve as the summarizer sidebar container
     // prepend to the passed in parent element
     summarizer = document.createElement('div');

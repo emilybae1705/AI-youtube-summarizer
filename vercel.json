@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "vercel-server/api/summarize.ts", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/summarize", "dest": "vercel-server/api/summarize.ts" }
+  ]
+}

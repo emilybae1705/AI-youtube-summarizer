@@ -41,5 +41,5 @@ export async function getLLMSummary(title: string, transcript: string) {
     });
       
     const data = await response.json();
-    const summary = data.summary;
+    return data.summary;
 }
