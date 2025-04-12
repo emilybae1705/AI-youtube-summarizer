@@ -36,6 +36,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   const prompt = PROMPT_TEMPLATE.replace("{{title}}", title);
 
   try {
+    if (!process.env.OPENAI_API_KEY) {
+      throw new Error("OPENAI_API_KEY is not defined");
+    }
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
