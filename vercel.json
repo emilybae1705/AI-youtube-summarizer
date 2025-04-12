@@ -1,9 +1,18 @@
 {
   "version": 2,
   "builds": [
-    { "src": "vercel-server/api/summarize.ts", "use": "@vercel/node" }
+    {
+      "src": "vercel-server/api/summarize.ts",
+      "use": "@vercel/node",
+      "config": {
+        "runtime": "nodejs18.x"
+      }
+    }
   ],
   "routes": [
-    { "src": "/api/summarize", "dest": "vercel-server/api/summarize.ts" }
+    {
+      "src": "/api/summarize",
+      "dest": "vercel-server/api/summarize.ts"
+    }
   ]
 }
