@@ -29,7 +29,7 @@ function getTempByVideo(title: string): number {
 }
 
 export async function getLLMSummary(title: string, transcript: string) {
-    const response = await fetch("https://your-vercel-app.vercel.app/api/summarize", {
+    const response = await fetch("https://video-digest-ai.vercel.app/api/summarize", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
